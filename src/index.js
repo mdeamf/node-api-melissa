@@ -9,9 +9,9 @@ const pinoHttp = require('pino-http')({logger});
 const app = express();
 
 app.use(express.json());
+app.use(pinoHttp);
 app.use(cors());
 app.use(routes);
-app.use(pinoHttp);
 
 app.get('/', (req, res) => {
     res.status(200).json({
