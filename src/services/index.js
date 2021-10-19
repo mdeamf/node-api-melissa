@@ -1,7 +1,6 @@
-// const exemploServices = require('./exemploServices')
-// chamar services individuais
+const clientesService = require('./clientes.service')
+
 
 module.exports = {
-    // exemploServices: exemploServices,
-    // exportar aqui as services
+    clientesService: clientesService
 }
