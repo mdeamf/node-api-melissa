@@ -1,8 +1,7 @@
 const express = require("express");
-//Chamar aqui suas rotas
-
+const clientes = require("./clientes.routes");
 const router = express.Router();
 
-// router.use('/...', ...rotas)
+router.use('/clientes', clientes);
 
 module.exports = router;
