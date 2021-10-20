@@ -5,6 +5,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 const logger = require('./logger');
 const pinoHttp = require('pino-http')({ logger });
+const objetoDeResposta = require('./controllers/formata.objeto.de.resposta');
 
 const app = express();
 
@@ -14,13 +15,18 @@ app.use(cors());
 app.use(routes);
 
 app.get('/', (req, res) => {
-  res.status(200).json({
-    message: 'A api está funcionando!',
-  });
+  const resposta = objetoDeResposta.formataObjeto(
+    false,
+    null,
+    'A api está funcionando!'
+  );
+  res.status(200).json(resposta);
 });
 
 app.use((req, res, next) => {
-  res.status(404).json({ Erro: 'Request inválida.' });
+  const err = new Error('Request inválida!');
+  const resposta = objetoDeResposta.formataObjeto(true, err);
+  res.status(404).json(resposta);
 });
 
 app.listen(process.env.PORT, () => {
