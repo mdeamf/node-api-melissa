@@ -19,6 +19,23 @@ class ClientesController {
       return res.status(400).json(obj);
     }
   }
+
+  /**
+   * Esta função retorna um cliente.
+   * @param {*} cliente recebe do service um objeto cliente.
+   * @param {*} obj recebe o objeto e formata p/ o objeto de resposta da requisição.
+   * @returns conclui o envio do response com status 200 e o objeto formatado.
+   */
+  static async getClienteById(req, res){
+    try {
+      const cliente = await service.pegaUmRegistro(req.params.id);
+      const obj = objetoDeResposta.formataObjeto(false, null, cliente);
+      return res.status(200).json(obj);
+    } catch (err) {
+      const obj = objetoDeResposta.formataObjeto(true, err);
+      return res.status(400).json(obj);
+    }
+  }
 }
 
 module.exports = ClientesController;
