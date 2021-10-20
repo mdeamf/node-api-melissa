@@ -15,5 +15,5 @@ module.exports = {
 
   down: async (queryInterface, Sequelize) => {
     await queryInterface.removeConstraint('Telefones', 'telefone_tipo');
-  }
+  },
 };

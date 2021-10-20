@@ -1,7 +1,7 @@
 const pino = require('pino')({
-    prettyPrint: {
-        levelFirst: true
-    },
+  prettyPrint: {
+    levelFirst: true,
+  },
 });
 
-module.exports = pino ;
+module.exports = pino;

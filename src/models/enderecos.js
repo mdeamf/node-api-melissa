@@ -10,7 +10,15 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Enderecos.belongsTo(models.EnderecosTipos, {
+        as: "tipo_endereco",
+        foreignKey: "endereco_tipo",
+      });
+
+      Enderecos.belongsTo(models.Cidades, {
+        as: "cidad",
+        foreignKey: "cidade",
+      });
     }
   };
   Enderecos.init({

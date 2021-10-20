@@ -7,46 +7,46 @@ module.exports = {
         autoIncrement: true,
         unique: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       cliente_nome: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       cliente_nasc: {
         allowNull: false,
-        type: Sequelize.DATEONLY
+        type: Sequelize.DATEONLY,
       },
       is_active: {
         allowNull: false,
         type: Sequelize.BOOLEAN,
-        defaultValue: true
+        defaultValue: true,
       },
       endereco_resid: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       endereco_comer: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       telefone: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       celular: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('Clientes');
-  }
+  },
 };
