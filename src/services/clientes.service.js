@@ -25,7 +25,7 @@ class ClientesService extends Services {
         {
           model: Enderecos,
           as: 'resid',
-          attributes: ['rua', 'numero', 'complemento', 'bairro', 'cidade'],
+          attributes: ['rua', 'numero', 'complemento', 'bairro'],
           include: [
             this.criaInclude(EnderecosTipos, 'tipo_endereco', 'id', 'tipo'),
             this.criaInclude(Cidades, 'cidad', 'cidade_nome', 'cidade_uf'),
@@ -34,7 +34,7 @@ class ClientesService extends Services {
         {
           model: Enderecos,
           as: 'comer',
-          attributes: ['rua', 'numero', 'complemento', 'bairro', 'cidade'],
+          attributes: ['rua', 'numero', 'complemento', 'bairro'],
           include: [
             this.criaInclude(EnderecosTipos, 'tipo_endereco', 'id', 'tipo'),
             this.criaInclude(Cidades, 'cidad', 'cidade_nome', 'cidade_uf'),
@@ -76,7 +76,7 @@ class ClientesService extends Services {
         {
           model: Enderecos,
           as: 'resid',
-          attributes: ['rua', 'numero', 'complemento', 'bairro', 'cidade'],
+          attributes: ['rua', 'numero', 'complemento', 'bairro'],
           include: [
             this.criaInclude(EnderecosTipos, 'tipo_endereco', 'id', 'tipo'),
             this.criaInclude(Cidades, 'cidad', 'cidade_nome', 'cidade_uf'),
@@ -85,7 +85,7 @@ class ClientesService extends Services {
         {
           model: Enderecos,
           as: 'comer',
-          attributes: ['rua', 'numero', 'complemento', 'bairro', 'cidade'],
+          attributes: ['rua', 'numero', 'complemento', 'bairro'],
           include: [
             this.criaInclude(EnderecosTipos, 'tipo_endereco', 'id', 'tipo'),
             this.criaInclude(Cidades, 'cidad', 'cidade_nome', 'cidade_uf'),
