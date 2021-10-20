@@ -48,6 +48,14 @@ class ClientesService extends Services {
             this.criaInclude(TelefonesTipos, 'tipo_telefone', 'id', 'tipo'),
           ],
         },
+        {
+          model: Telefones,
+          as: 'cel',
+          attributes: ['ddd', 'numero'],
+          include: [
+            this.criaInclude(TelefonesTipos, 'tipo_telefone', 'id', 'tipo'),
+          ],
+        },
       ],
     });
 
@@ -55,7 +63,7 @@ class ClientesService extends Services {
   }
 
   /**
-   * Esta função cria um objeto para o include.
+   * Esta função cria um objeto para o include interno da consulta.
    * @param {*} model recebe o nome do modelo/tabela no banco de dados.
    * @param {string} as recebe o apelido da tabela.
    * @param  {'id' | 'tipo'} attributes recebe os campos de consulta.
