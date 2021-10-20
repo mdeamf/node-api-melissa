@@ -1,6 +1,5 @@
-const clientesService = require('./clientes.service')
-
+const clientesService = require('./clientes.service');
 
 module.exports = {
-    clientesService: clientesService
-}
+  clientesService: clientesService,
+};

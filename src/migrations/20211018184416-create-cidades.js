@@ -7,27 +7,27 @@ module.exports = {
         autoIncrement: true,
         unique: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       cidade_nome: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       cidade_uf: {
         allowNull: false,
-        type: Sequelize.STRING(2)
+        type: Sequelize.STRING(2),
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('Cidades');
-  }
+  },
 };
