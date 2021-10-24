@@ -22,6 +22,12 @@ app.get('/', (req, res) => {
     res.status(200).json(resposta);
 });
 
+app.use((req, res) => {
+    const err = new Error('Request inválida!');
+    const resposta = objetoDeResposta.formataObjeto(true, err, null);
+    res.status(404).json(resposta);
+});
+
 app.listen(port, () => {
     console.log(`O servidor está rodando na porta ${port}.`);
 });
