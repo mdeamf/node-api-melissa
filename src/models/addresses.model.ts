@@ -1,5 +1,14 @@
 import mongoose from 'mongoose';
 
+export interface Address {
+  rua: String;
+  numero: String;
+  complemento: String;
+  bairro: String;
+  cep: String;
+  cidade: String;
+}
+
 const AddressesSchema = new mongoose.Schema(
   {
     rua: {
@@ -26,6 +35,6 @@ const AddressesSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const Addresses = mongoose.model('Addresses', AddressesSchema);
+const Addresses = mongoose.model<Address>('Addresses', AddressesSchema);
 
 export default Addresses;

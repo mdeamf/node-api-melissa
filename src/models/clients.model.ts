@@ -1,6 +1,14 @@
 import mongoose from 'mongoose';
 import Schema = mongoose.Schema;
 
+export interface Client {
+  cliente_nome: String;
+  cliente_nasc: Date;
+  is_active: Boolean;
+  endereco_id: Number;
+  contatos: Array<String>;
+}
+
 const ClientsSchema = new mongoose.Schema(
   {
     cliente_nome: {
@@ -32,6 +40,6 @@ const ClientsSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const Clients = mongoose.model('Clients', ClientsSchema);
+const Clients = mongoose.model<Client>('Clients', ClientsSchema);
 
 export default Clients;

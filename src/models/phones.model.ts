@@ -1,5 +1,11 @@
 import mongoose from 'mongoose';
 
+export interface Phone {
+  ddd: String;
+  numero: String;
+  descricao: String;
+}
+
 const PhonesSchema = new mongoose.Schema(
   {
     ddd: {
@@ -18,6 +24,6 @@ const PhonesSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const Phones = mongoose.model('Phones', PhonesSchema);
+const Phones = mongoose.model<Phone>('Phones', PhonesSchema);
 
 export default Phones;
