@@ -1,27 +1,34 @@
 import mongoose from 'mongoose';
 
-const ClientsSchema = new mongoose.Schema({
+const ClientsSchema = new mongoose.Schema(
+  {
     cliente_nome: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
     cliente_nasc: {
-        type: Date,
-        required: true
+      type: Date,
+      required: true,
     },
     is_active: {
-        type: Boolean,
-        required: true,
-        default: true
+      type: Boolean,
+      required: true,
+      default: true,
     },
-    endereco_id: [{
+    endereco_id: [
+      {
         type: Number,
         required: true,
-    }],
-    contatos: [{
-        type: [String]
-    }]
-}, { timestamps: true });
+      },
+    ],
+    contatos: [
+      {
+        type: [String],
+      },
+    ],
+  },
+  { timestamps: true }
+);
 
 const Clients = mongoose.model('Clients', ClientsSchema);
 

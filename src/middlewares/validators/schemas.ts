@@ -1,7 +1,7 @@
 import clientsValidator from './clients.body.validator';
 
 const schemas = {
-  clientsValidator: clientsValidator,
+  clienteValidator: clientsValidator,
 };
 
 export default schemas;
