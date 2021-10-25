@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import Schema = mongoose.Schema;
 
 const ClientsSchema = new mongoose.Schema(
   {
@@ -17,13 +18,14 @@ const ClientsSchema = new mongoose.Schema(
     },
     endereco_id: [
       {
-        type: Number,
-        required: true,
+        type: Schema.Types.ObjectId,
+        ref: 'addresses',
       },
     ],
     contatos: [
       {
-        type: [String],
+        type: Schema.Types.ObjectId,
+        ref: 'phones',
       },
     ],
   },
