@@ -14,6 +14,26 @@ class UsuariosService {
 
     return usuario;
   }
+
+  static async userInactive(dados: any) {
+    const { _id } = dados;
+    const usuario = await Usuarios.findByIdAndUpdate(
+      { _id: _id },
+      { is_active: false },
+      { new: true }
+    );
+    return usuario;
+  }
+
+  static async userActive(dados: any) {
+    const { _id } = dados;
+    const usuario = await Usuarios.findByIdAndUpdate(
+      { _id: _id },
+      { is_active: true },
+      { new: true }
+    );
+    return usuario;
+  }
 }
 
 export default UsuariosService;
