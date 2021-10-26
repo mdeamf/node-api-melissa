@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import objetoDeResposta from '../utils/formata.objeto.de.resposta';
 
 class ClientsController {
-    /* static async createClient(req: Request, res: Response){
+  /* static async createClient(req: Request, res: Response){
       const data = req.body
       try {
         const obj = objetoDeResposta.formataObjeto(false, null, data);

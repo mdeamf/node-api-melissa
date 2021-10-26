@@ -1,28 +1,40 @@
 import mongoose from 'mongoose';
 
-const AddressesSchema = new mongoose.Schema({
+export interface Address {
+  rua: String;
+  numero: String;
+  complemento: String;
+  bairro: String;
+  cep: String;
+  cidade: String;
+}
+
+const AddressesSchema = new mongoose.Schema(
+  {
     rua: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     numero: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     complemento: {
-        type: String
+      type: String,
     },
     bairro: {
-        type: String
+      type: String,
     },
     cep: {
-        type: String
+      type: String,
     },
     cidade: {
-        type: String
+      type: String,
     },
-}, { timestamps: true });
-    
-const Addresses = mongoose.model('Addresses', AddressesSchema);
-    
+  },
+  { timestamps: true }
+);
+
+const Addresses = mongoose.model<Address>('Addresses', AddressesSchema);
+
 export default Addresses;
