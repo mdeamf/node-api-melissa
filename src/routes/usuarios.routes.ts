@@ -11,7 +11,7 @@ router.post(
   jwt.verifyToken,
   UsuariosController.createUsuario
 );
-router.post('/desativar', jwt.verifyToken, UsuariosController.deactivate);
-router.post('/ativar', jwt.verifyToken, UsuariosController.activate);
+router.patch('/desativar', UsuariosController.deactivate);
+router.patch('/ativar', UsuariosController.activate);
 
 export default router;
