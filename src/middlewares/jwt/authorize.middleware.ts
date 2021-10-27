@@ -17,7 +17,7 @@ class jwtAuthorize {
         }
       });
     } catch (err) {
-      const obj = objetoDeResposta.formataObjeto(true, err, null);
+      const obj = objetoDeResposta.formataObjeto(true, err);
       return res.status(400).json(obj);
     }
   }

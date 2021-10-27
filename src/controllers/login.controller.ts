@@ -11,7 +11,7 @@ class LoginController {
       const obj = objetoDeResposta.formataObjeto(false, null, token);
       return res.status(200).json(obj);
     } catch (err) {
-      const obj = objetoDeResposta.formataObjeto(true, err, null);
+      const obj = objetoDeResposta.formataObjeto(true, err);
       return res.status(400).json(obj);
     }
   }
