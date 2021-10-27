@@ -1,7 +1,8 @@
 import Usuarios from '../models/usuarios.model';
+import { IUser } from '../interfaces/user.interface';
 
 class UsuariosService {
-  static async createUser(dados: any) {
+  static async createUser(dados: IUser) {
     const { usuario_nome, usuario_senha, is_active } = dados;
 
     const usuario = await Usuarios.create({
