@@ -4,9 +4,8 @@ import service from '../services/usuarios.service';
 
 class UsuariosController {
   static async createUsuario(req: Request, res: Response) {
-    const dados = req.body;
     try {
-      const usuario = await service.createUser(dados);
+      const usuario = await service.createUser(req.body);
       const obj = objetoDeResposta.formataObjeto(false, null, usuario);
       return res.status(200).json(obj);
     } catch (err) {
@@ -16,9 +15,8 @@ class UsuariosController {
   }
 
   static async deactivate(req: Request, res: Response) {
-    const dados = req.body;
     try {
-      const usuario = await service.userInactive(dados);
+      const usuario = await service.userInactive(req.body);
       const obj = objetoDeResposta.formataObjeto(false, null, usuario);
       return res.status(200).json(obj);
     } catch (err) {
@@ -28,9 +26,8 @@ class UsuariosController {
   }
 
   static async activate(req: Request, res: Response) {
-    const dados = req.body;
     try {
-      const usuario = await service.userActive(dados);
+      const usuario = await service.userActive(req.body);
       const obj = objetoDeResposta.formataObjeto(false, null, usuario);
       return res.status(200).json(obj);
     } catch (err) {
