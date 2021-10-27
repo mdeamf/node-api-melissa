@@ -1,11 +1,6 @@
 import mongoose, { Schema } from 'mongoose';
 import bcrypt from 'bcryptjs';
-
-export interface User {
-  usuario_nome: string;
-  usuario_senha: string;
-  is_active: Boolean;
-}
+import { IUser } from '../interfaces/user.interface';
 
 const UsuariosSchema = new mongoose.Schema(
   {
@@ -37,6 +32,6 @@ UsuariosSchema.pre('save', async function (next) {
   }
 });
 
-const Usuarios = mongoose.model<User>('Usuarios', UsuariosSchema);
+const Usuarios = mongoose.model<IUser>('Usuarios', UsuariosSchema);
 
 export default Usuarios;

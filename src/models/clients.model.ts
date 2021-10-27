@@ -1,13 +1,6 @@
 import mongoose from 'mongoose';
 import Schema = mongoose.Schema;
-
-export interface Client {
-  cliente_nome: String;
-  cliente_nasc: Date;
-  is_active: Boolean;
-  endereco_id: Number;
-  contatos: Array<String>;
-}
+import { IClientBody } from '../interfaces/client.interface';
 
 const ClientsSchema = new mongoose.Schema(
   {
@@ -40,6 +33,6 @@ const ClientsSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const Clients = mongoose.model<Client>('Clients', ClientsSchema);
+const Clients = mongoose.model<IClientBody>('Clients', ClientsSchema);
 
 export default Clients;
