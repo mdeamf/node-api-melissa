@@ -1,4 +1,6 @@
 import Joi from 'joi';
+import addressesValidator from './addresses.schema.validator';
+import phonesValidator from './phones.schema.validator';
 
 export default Joi.object({
   cliente_nome: Joi.string().required().min(2).messages({
@@ -15,12 +17,12 @@ export default Joi.object({
     'any.required': "o campo 'is_active' é obrigatório",
     'string.empty': "o campo 'is_active' não pode estar vazio",
   }),
-  endereco_id: Joi.number().required().messages({
+  endereco_id: Joi.array().items(addressesValidator).required().messages({
     'any.required': "o campo 'endereco_id' é obrigatório",
-    'string.empty': "o campo 'endereco_id' não pode estar vazio",
+    'array.base': "o campo 'endereco_id' deve ser um array",
   }),
-  contatos: Joi.array().items(Joi.string()).required().messages({
+  contatos: Joi.array().items(phonesValidator).required().messages({
     'any.required': "o campo 'contatos' é obrigatório",
-    'array.base': "o campo 'contatos' deve ser um array de strings",
+    'array.base': "o campo 'contatos' deve ser um array",
   }),
 });
