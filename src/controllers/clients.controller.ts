@@ -9,7 +9,18 @@ class ClientsController {
       const obj = objetoDeResposta.formataObjeto(false, null, cliente);
       return res.status(200).json(obj);
     } catch (err) {
-      const obj = objetoDeResposta.formataObjeto(true, err, null);
+      const obj = objetoDeResposta.formataObjeto(true, err);
+      return res.status(400).json(obj);
+    }
+  }
+
+  static async getClients(req: Request, res: Response) {
+    try {
+      const cliente = await service.getAllClients();
+      const obj = objetoDeResposta.formataObjeto(false, null, cliente);
+      return res.status(200).json(obj);
+    } catch (err) {
+      const obj = objetoDeResposta.formataObjeto(true, err);
       return res.status(400).json(obj);
     }
   }
