@@ -5,6 +5,8 @@ import Validator from '../middlewares/validators/validator.middleware';
 const router = express.Router();
 import jwt from '../middlewares/jwt/authorize.middleware';
 
+router.get('/', jwt.verifyToken, ClientsController.getClients);
+
 router.post(
   '/',
   jwt.verifyToken,
