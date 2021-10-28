@@ -6,7 +6,7 @@ class objetoDeResposta {
    * @param {*} dados recebe ou não os dados da resposta.
    * @returns retorna o objeto de resposta padronizado.
    */
-  static formataObjeto(hasError: boolean, err: any, dados: any) {
+  static formataObjeto(hasError: boolean, err: any, dados?: any) {
     if (hasError) {
       return {
         hasError,

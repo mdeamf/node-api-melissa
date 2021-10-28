@@ -9,7 +9,7 @@ class jwtAuthorize {
     const header = req.headers.authorization || '';
     const secret = process.env.SECRET || '';
     try {
-      jwt.verify(header, secret, (err: any, decoded: any) => {
+      jwt.verify(header, secret, (err, decoded) => {
         if (err) {
           throw new Error('Não autorizado!');
         } else {
@@ -17,7 +17,7 @@ class jwtAuthorize {
         }
       });
     } catch (err) {
-      const obj = objetoDeResposta.formataObjeto(true, err, null);
+      const obj = objetoDeResposta.formataObjeto(true, err);
       return res.status(400).json(obj);
     }
   }

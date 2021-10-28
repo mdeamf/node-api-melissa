@@ -19,11 +19,11 @@ class Validator {
         if (valid) {
           next();
         } else {
-          const obj = objetoDeResposta.formataObjeto(true, error, null);
+          const obj = objetoDeResposta.formataObjeto(true, error);
           return res.status(400).json(obj);
         }
       } catch (error) {
-        const obj = objetoDeResposta.formataObjeto(true, error, null);
+        const obj = objetoDeResposta.formataObjeto(true, error);
         return res.status(400).json(obj);
       }
     };
