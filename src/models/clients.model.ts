@@ -20,13 +20,13 @@ const ClientsSchema = new mongoose.Schema(
     endereco_id: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'addresses',
+        ref: 'Addresses',
       },
     ],
     contatos: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'phones',
+        ref: 'Phones',
       },
     ],
   },
