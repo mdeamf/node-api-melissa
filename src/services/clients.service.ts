@@ -45,6 +45,37 @@ class ClientsService {
       return err;
     }
   }
+
+  static async getAllClients() {
+    const clientes = await ClientsModel.find()
+      .select({
+        _id: 1,
+        cliente_nome: 1,
+        is_active: 1,
+      })
+      .populate({
+        path: 'endereco_id',
+        select: {
+          _id: 0,
+          rua: 1,
+          numero: 1,
+          complemento: 1,
+          bairro: 1,
+          cep: 1,
+          cidade: 1,
+        },
+      })
+      .populate({
+        path: 'contatos',
+        select: {
+          _id: 0,
+          ddd: 1,
+          numero: 1,
+          descricao: 1,
+        },
+      });
+    return clientes;
+  }
 }
 
 export default ClientsService;
